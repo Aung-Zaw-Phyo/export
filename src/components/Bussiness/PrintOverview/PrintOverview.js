@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import classes from "./PrintOverview.module.css";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import CompanyPDF from "../../Print/Company/CompanyPDF";
-import { CompanyPrintFun } from "../../Print/Company/CompanyPrint";
+import BussinessPDF from "../../Print/Bussiness/BussinessPDF";
+import { BussinessPrintFun } from "../../Print/Bussiness/BussinessPrint";
 import Example from "./Example";
 
 const PrintOverview = (props) => {
@@ -19,24 +19,24 @@ const PrintOverview = (props) => {
     <div className={`${classes.overview}`}>
       {props.items.length > 0 ? (
         <>
-          <CompanyPrintFun
+          <BussinessPrintFun
             ref={componentRef}
             items={props.items}
             totalCost={props.totalCost}
           />
           <div className={`${classes.action} d-flex justify-content-between`}>
             <button onClick={handlePrint} className={`${classes.button}`}>
-              PRINT
+            <i classNmae="fa-solid fa-print"></i> PRINT
             </button>
 
             <PDFDownloadLink
               className={`${classes.button} text-decoration-none text-light text-center`}
               document={
-                <CompanyPDF items={props.items} totalCost={props.totalCost} info={info}/>
+                <BussinessPDF items={props.items} totalCost={props.totalCost} info={info}/>
               }
               fileName="export.pdf"
             >
-              PDF
+              <i classNmae="fa-solid fa-file-pdf"></i> PDF
             </PDFDownloadLink>
           </div>
         </>

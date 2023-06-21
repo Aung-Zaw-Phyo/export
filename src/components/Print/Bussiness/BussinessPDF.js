@@ -109,7 +109,7 @@ const year = date.getFullYear();
 const today = day + " " + month + " " + year;
 
 // Create Document Component
-const CompanyPDF = (props) => (
+const BussinessPDF = (props) => (
   <Document>
     <Page size="A4" style={styles.container}>
       <View>
@@ -169,4 +169,4 @@ const CompanyPDF = (props) => (
   </Document>
 );
 
-export default CompanyPDF;
+export default BussinessPDF;

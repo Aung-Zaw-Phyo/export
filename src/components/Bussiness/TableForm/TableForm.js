@@ -17,7 +17,7 @@ const TableForm = (props) => {
 
     const infoFromDB = localStorage.getItem('info')
     if(!infoFromDB){
-      alert('Please save company information')
+      alert('Please save bussiness information')
       return;
     }
     const formData = new FormData(e.target);
@@ -39,6 +39,12 @@ const TableForm = (props) => {
     }
     props.onSetItems(data_arr);
   };
+
+  const clear = () => {
+    setInputs([])
+    setTimeout(() => setInputs(prevState => [0]), 500)
+  }
+
   return (
     <div className="border-0 p-3 shadow bg-light">
       <form onSubmit={submitHandler} autoComplete="off">
@@ -88,6 +94,9 @@ const TableForm = (props) => {
         </table>
         <button className={classes.button}>Confirm</button>
       </form>
+      {
+        inputs.length > 1 && <button className={`${classes.button} mt-3`} onClick={clear}>Clear Data</button>
+      }
     </div>
   );
 };

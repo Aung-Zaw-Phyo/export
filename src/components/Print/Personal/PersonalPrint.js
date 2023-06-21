@@ -11,24 +11,26 @@ export const PersonalPrintFun = React.forwardRef((props, ref) => {
     <div ref={ref}>
       <div className={`${classes["print-container"]}`}>
         <div className={`${classes.date}`}>{today}</div>
-          <div>
-            <p className={`${classes["data-item-header"]}`}>
-              <span className={`${classes.name}`}>Name</span>
-              <span className={`${classes.unit}`}>Unit</span>
-              <span className={`${classes.cost}`}>Cost</span>
+        <div>
+          <p className={`${classes["data-item-header"]}`}>
+            <span className={`${classes.name}`}>Item</span>
+            <span className={`${classes.cost}`}>Price</span>
+            <span className={`${classes.unit}`}>Unit</span>
+            <span className={`${classes.amount}`}>Amount</span>
+          </p>
+          {props.items.map((item) => (
+            <p key={item.id} className={`${classes["data-item"]}`}>
+              <span className={`${classes.name}`}>{item.item}</span>
+              <span className={`${classes.cost}`}>{item.price}</span>
+              <span className={`${classes.unit}`}>{item.unit}</span>
+              <span className={`${classes.amount}`}>{item.amount}</span>
             </p>
-            {props.items.map((item) => (
-              <p key={item.id} className={`${classes["data-item"]}`}>
-                <span className={`${classes.name}`}>{item.name}</span>
-                <span className={`${classes.unit}`}>{item.unit}</span>
-                <span className={`${classes.cost}`}>{item.cost}</span>
-              </p>
-            ))}
-            <p className={`${classes["data-item-footer"]}`}>
-              <span className={`${classes["total-cost"]}`}>Total Cost</span>
-              <span className={`${classes.cost}`}>{props.totalCost}</span>
-            </p>
-          </div>
+          ))}
+          <p className={`${classes["data-item-footer"]}`}>
+            <span className={`${classes["total-cost"]}`}>Total Cost</span>
+            <span className={`${classes.cost}`}>{props.totalCost}</span>
+          </p>
+        </div>
       </div>
     </div>
   );

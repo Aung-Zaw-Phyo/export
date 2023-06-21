@@ -23,7 +23,7 @@ const PrintOverview = (props) => {
           <div className={`${classes.action} d-flex justify-content-between`}>
 
             <button onClick={handlePrint} className={`${classes.button}`}>
-              PRINT
+            <i className="fa-solid fa-print"></i> PRINT
             </button>
 
             <PDFDownloadLink
@@ -32,7 +32,7 @@ const PrintOverview = (props) => {
                 <PersonalPDF  items={props.items} totalCost={props.totalCost}/>
               }
               fileName="export.pdf"
-            >PDF</PDFDownloadLink>
+            ><i className="fa-solid fa-file-pdf"></i> PDF</PDFDownloadLink>
 
           </div>
         </>

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ddd",
   },
   header_item: {
-    width: "33.33%",
+    width: "25%",
     fontWeight: "bold",
     fontSize: "12px",
   },
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     borderBottom: "1px dotted #333",
   },
   data_item: {
-    width: "33.33%",
+    width: "25%",
     padding: "6px",
     fontSize: "12px",
   },
@@ -81,6 +81,25 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     fontSize: "12px",
   },
+  info: {
+    marginBottom: "15px",
+  },
+
+  title: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: "0",
+    marginBottom: "12px",
+    fontWeight: "bold",
+    fontSize: "16px",
+  },
+  address: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 0,
+    marginBottom: "8px",
+    fontSize: "14px",
+  },
 });
 
 const date = new Date();
@@ -100,25 +119,31 @@ const PersonalPDF = (props) => (
         <View>
           <View style={styles.header}>
             <View style={styles.header_item}>
-              <Text>Name</Text>
+              <Text>Item</Text>
+            </View>
+            <View style={styles.header_item_2}>
+              <Text>Price</Text>
             </View>
             <View style={styles.header_item_2}>
               <Text>Unit</Text>
             </View>
             <View style={styles.header_item_2}>
-              <Text>Cost</Text>
+              <Text>Amount</Text>
             </View>
           </View>
           {props.items.map((item) => (
             <View key={item.id} style={styles.data}>
               <View style={styles.data_item}>
-                <Text>{item.name}</Text>{" "}
+                <Text>{item.item}</Text>
+              </View>
+              <View style={styles.data_item_2}>
+                <Text>{item.price}</Text>
               </View>
               <View style={styles.data_item_2}>
                 <Text>{item.unit}</Text>
               </View>
               <View style={styles.data_item_2}>
-                <Text>{item.cost}</Text>
+                <Text>{item.amount}</Text>
               </View>
             </View>
           ))}

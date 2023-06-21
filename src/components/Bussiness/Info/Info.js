@@ -128,26 +128,26 @@ const Info = () => {
       <div className="card border-0 shadow p-3">
         <div className="row g-2">
             <div className="col-lg-6 p-3">
-                <div className={classes.company_info}>
+                <div className={classes.bussiness_info}>
                     <table className="table table-borderless">
                         <tbody>
                             <tr className="p-3">
-                                <td className={classes['table-label']}>Company Name</td>
+                                <td className={classes['table-label']}><i className="fa-solid fa-business-time"></i> Bussiness Name</td>
                                 <td className="text-muted">{info ? info.name : '-'}</td>
                             </tr>
                             <tr>
-                                <td className={classes['table-label']}>Phone Number</td>
+                                <td className={classes['table-label']}><i className="fa-solid fa-phone"></i> Phone Number</td>
                                 <td className="text-muted">{info ? info.phone : '-'}</td>
                             </tr>
                             <tr>
-                                <td className={classes['table-label']}>Address</td>
+                                <td className={classes['table-label']}><i className="fa-sharp fa-solid fa-location-dot"></i> Address</td>
                                 <td className="text-muted">
                                     {info ? <p className="m-0 p-0">{info.address1}</p> : '-'}
                                     {info && <p className="m-0 p-0">{info.address2}</p>}
                                 </td>
                             </tr>
                             <tr>
-                                <td className={classes['table-label']}>Description</td>
+                                <td className={classes['table-label']}><i className="fa-sharp fa-solid fa-circle-info"></i> Description</td>
                                 <td className="text-muted">{info ? info.description : '-'}</td>
                             </tr>
                         </tbody>
@@ -157,24 +157,24 @@ const Info = () => {
             <div className={`col-lg-6 p-3 ${classes['right-col']}`}>
                 <form action="" onSubmit={submitHander}>
                     <div className="mb-3">
-                        <label htmlFor="name" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Company Name</label>
-                        <input value={infoState.name} onChange={nameHandler} type="text" className="form-control" id='name' placeholder="Enter company name"/>
+                        <label htmlFor="name" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Bussiness Name</label>
+                        <input value={infoState.name} onChange={nameHandler} type="text" className="form-control" id='name' placeholder=""/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="phone" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Phone Number</label>
-                        <input value={infoState.phone} onChange={phoneHandler} type="text" className="form-control" id='phone' placeholder="Enter service phone name"/>
+                        <input value={infoState.phone} onChange={phoneHandler} type="text" className="form-control" id='phone' placeholder=""/>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="address1" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Address 1</label>
-                        <input value={infoState.address1} onChange={address1Handler} type="text" className="form-control" id='address1' placeholder="Enter address (exp, no, street, quarter)"/>
+                        <label htmlFor="address1" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Address 1 (exp, no, street, quarter)</label>
+                        <input value={infoState.address1} onChange={address1Handler} type="text" className="form-control" id='address1' placeholder=""/>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="address2" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Address 2</label>
-                        <input value={infoState.address2} onChange={address2Handler} type="text" className="form-control" id='address2' placeholder="Enter address (exp, township, city)"/>
+                        <label htmlFor="address2" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Address 2 (exp, township, city)</label>
+                        <input value={infoState.address2} onChange={address2Handler} type="text" className="form-control" id='address2' placeholder=""/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-lable mb-2"><i className="fa-regular fa-star"></i> Describe your service</label>
-                        <textarea value={infoState.description} onChange={descriptionHandler} id="description" className="form-control" rows="3" placeholder='Enter service description'></textarea>
+                        <textarea value={infoState.description} onChange={descriptionHandler} id="description" className="form-control" rows="3" placeholder=''></textarea>
                     </div>
                     <div>
                         {

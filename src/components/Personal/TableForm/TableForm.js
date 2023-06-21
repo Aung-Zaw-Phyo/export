@@ -20,11 +20,12 @@ const TableForm = (props) => {
     let data_arr = [];
     for (let i = 0; i < inputs.length; i++) {
 
-      if (data[`name-${i}`].length > 0 && (+data[`cost-${i}`]) > 0) {
+      if (data[`item-${i}`].length > 0 && data[`price-${i}`].length > 0 && (+data[`price-${i}`]) > 0) {
         let obj = {};
-        obj.name = data[`name-${i}`];
+        obj.item = data[`item-${i}`];
+        obj.price = data[`price-${i}`];
         obj.unit = data[`unit-${i}`];
-        obj.cost = data[`cost-${i}`];
+        obj.amount = (+data[`unit-${i}`]) * (+data[`price-${i}`])
         obj.id = Math.random().toString();
 
         data_arr.push(obj);
@@ -32,15 +33,21 @@ const TableForm = (props) => {
     }
     props.onSetItems(data_arr);
   };
+
+  const clear = () => {
+    setInputs([])
+    setTimeout(() => setInputs(prevState => [0]), 500)
+  }
+
   return (
     <div className="border-0 p-3 shadow bg-light">
       <form onSubmit={submitHandler} autoComplete="off">
         <table className="table table-sm table-bordered text-center border-dark">
           <thead>
             <tr>
-              <th className="text-start py-2">Name</th>
+              <th className="text-start py-2">Item</th>
+              <th className="text-end py-2">Price</th>
               <th className="text-end py-2">Unit</th>
-              <th className="text-end py-2">Cost</th>
             </tr>
           </thead>
           <tbody>
@@ -49,11 +56,20 @@ const TableForm = (props) => {
                 <tr key={input}>
                   <td className="">
                     <input
-                      name={`name-${input}`}
+                      name={`item-${input}`}
                       id={`${input}`}
                       onChange={addInputHandler}
                       className={`form-control ${classes["table-input"]}`}
                       type="text"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      name={`price-${input}`}
+                      multiple
+                      className={`form-control ${classes["table-input"]} text-end`}
+                      type="number"
+                      step="1" min="0"
                     />
                   </td>
                   <td>
@@ -64,15 +80,6 @@ const TableForm = (props) => {
                       type="number"
                     />
                   </td>
-                  <td>
-                    <input
-                      name={`cost-${input}`}
-                      multiple
-                      className={`form-control ${classes["table-input"]} text-end`}
-                      type="number"
-                      step="1" min="0"
-                    />
-                  </td>
                 </tr>
               );
             })}
@@ -80,6 +87,9 @@ const TableForm = (props) => {
         </table>
         <button className={classes.button}>Confirm</button>
       </form>
+      {
+        inputs.length > 1 && <button className={`${classes.button} mt-3`} onClick={clear}>Clear Data</button>
+      }
     </div>
   );
 };

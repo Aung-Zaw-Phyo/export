@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import classes from "./CompanyPrint.module.css";
+import classes from "./BussinessPrint.module.css";
 
-export const CompanyPrintFun = React.forwardRef((props, ref) => {
+export const BussinessPrintFun = React.forwardRef((props, ref) => {
   const date = new Date();
   const day = date.toLocaleString("en-Us", { day: "2-digit" });
   const month = date.toLocaleString("en-Us", { month: "long" });

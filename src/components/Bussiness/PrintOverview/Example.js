@@ -13,7 +13,7 @@ const Example = () => {
       <div className={classes.example}>Example</div>
       <div className={`${classes.date}`}>{today}</div>
       <div className="text-center">
-        <h5 className="mb-0">ABC Company Co.</h5>
+        <h5 className="mb-0">ABC Co.</h5>
         <p className="mb-0">No. 123, Khayae Street, Kyan Sit Thar Road</p>
         <p className="mb-0">Hlaing, Yangon</p>
         <p><span>Phone</span> - <span>09123456789</span></p>

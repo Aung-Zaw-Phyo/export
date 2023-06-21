@@ -8,7 +8,7 @@ const itemsReducer = (state, action) => {
   if (action.type === "SET_ITEM") {
     const items = action.val;
     const totalCost = items.reduce((prevValue, item) => {
-      return prevValue + +item.cost;
+      return prevValue + (+item.amount);
     }, 0);
     return {
       items,

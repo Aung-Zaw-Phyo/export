@@ -19,8 +19,8 @@ const itemsReducer = (state, action) => {
   return state;
 };
 
-const Company = () => {
-  const [showInfo, setShowInfo] = useState(true);
+const Bussiness = () => {
+  const [showInfo, setShowInfo] = useState(false);
   const [itemsState, dispatchItems] = useReducer(itemsReducer, {
     items: [],
     totalCost: 0,
@@ -28,8 +28,8 @@ const Company = () => {
 
   useEffect(() => {
     const infoFromDB = localStorage.getItem("info");
-    if (infoFromDB) {
-      setShowInfo(false);
+    if (!infoFromDB) {
+      setShowInfo(true);
     }
   }, []);
 
@@ -66,4 +66,4 @@ const Company = () => {
   );
 };
 
-export default Company;
+export default Bussiness;
