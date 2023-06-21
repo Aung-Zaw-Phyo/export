@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import classes from "./Personal.module.css";
 import TableForm from "./TableForm/TableForm";
 import PrintOverview from "./PrintOverview/PrintOverview";
+import Header from "../UI/Header/Header";
 
 const itemsReducer = (state, action) => {
   if (action.type === "SET_ITEM") {
@@ -30,19 +31,23 @@ const Personal = () => {
     });
   };
 
-
-
   return (
-    <div className="container py-5">
-      <div className="row g-2">
-        <div className="col-lg-6 p-3">
-          <TableForm onSetItems={setItems} />
-        </div>
-        <div className={`col-lg-6 p-3 ${classes["right-col"]}`}>
-          <PrintOverview items={itemsState.items} totalCost={itemsState.totalCost} />
+    <>
+      <Header/>
+      <div className="container py-3">
+        <div className="row g-2">
+          <div className="col-lg-6 p-3">
+            <TableForm onSetItems={setItems} />
+          </div>
+          <div className={`col-lg-6 p-3 ${classes["right-col"]}`}>
+            <PrintOverview
+              items={itemsState.items}
+              totalCost={itemsState.totalCost}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

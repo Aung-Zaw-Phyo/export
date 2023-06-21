@@ -1,0 +1,23 @@
+.header  {
+    background-color: #37323E;
+    padding: 10px 0;
+    color: #DEB841;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.header h3 {
+    font-weight: bold;
+}
+
+.go--back {
+    padding: 6px 12px;
+    font-size: 18px;
+    color: #DEB841;
+    transition: 300ms ease;
+    border-radius: 6px;
+}
+.go--back:hover {
+    background-color: #19263940;
+    color: white;
+}

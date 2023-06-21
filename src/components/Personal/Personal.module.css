@@ -2,7 +2,10 @@
     border-left: 1px dotted #6D6A75;
 }
 
-
-/* ----------------------- */
+@media screen and (max-width: 992px) {
+    .right-col {
+        border: none !important;
+    }
+}
 
 

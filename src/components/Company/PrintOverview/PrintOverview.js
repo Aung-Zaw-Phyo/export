@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import classes from "./PrintOverview.module.css";
-import { PersonalPrintFun } from "../../Print/Personal/PersonalPrint";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import PersonalPDF from "../../Print/Personal/PersonalPDF";
+import CompanyPDF from "../../Print/Company/CompanyPDF";
+import { CompanyPrintFun } from "../../Print/Company/CompanyPrint";
+import Example from "./Example";
 
 const PrintOverview = (props) => {
   const componentRef = useRef();
@@ -11,17 +12,19 @@ const PrintOverview = (props) => {
     content: () => componentRef.current,
   });
 
+  const infoFromDB = localStorage.getItem("info");
+  const info = JSON.parse(infoFromDB);
+
   return (
     <div className={`${classes.overview}`}>
       {props.items.length > 0 ? (
         <>
-          <PersonalPrintFun
+          <CompanyPrintFun
             ref={componentRef}
             items={props.items}
             totalCost={props.totalCost}
           />
           <div className={`${classes.action} d-flex justify-content-between`}>
-
             <button onClick={handlePrint} className={`${classes.button}`}>
               PRINT
             </button>
@@ -29,17 +32,16 @@ const PrintOverview = (props) => {
             <PDFDownloadLink
               className={`${classes.button} text-decoration-none text-light text-center`}
               document={
-                <PersonalPDF  items={props.items} totalCost={props.totalCost}/>
+                <CompanyPDF items={props.items} totalCost={props.totalCost} info={info}/>
               }
               fileName="export.pdf"
-            >PDF</PDFDownloadLink>
-
+            >
+              PDF
+            </PDFDownloadLink>
           </div>
         </>
       ) : (
-        <p className="text-center text-muted m-0 p-0 p-3">
-          Record your daily cost.
-        </p>
+        <Example />
       )}
     </div>
   );

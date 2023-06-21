@@ -14,17 +14,24 @@ const TableForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const infoFromDB = localStorage.getItem('info')
+    if(!infoFromDB){
+      alert('Please save company information')
+      return;
+    }
     const formData = new FormData(e.target);
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
     let data_arr = [];
     for (let i = 0; i < inputs.length; i++) {
 
-      if (data[`name-${i}`].length > 0 && (+data[`cost-${i}`]) > 0) {
+      if (data[`item-${i}`].length > 0 && data[`price-${i}`].length > 0 && (+data[`price-${i}`]) > 0 && data[`unit-${i}`].length > 0) {
         let obj = {};
-        obj.name = data[`name-${i}`];
+        obj.item = data[`item-${i}`];
         obj.unit = data[`unit-${i}`];
-        obj.cost = data[`cost-${i}`];
+        obj.price = data[`price-${i}`];
+        obj.amount = (+data[`unit-${i}`]) * (+data[`price-${i}`])
         obj.id = Math.random().toString();
 
         data_arr.push(obj);
@@ -38,9 +45,9 @@ const TableForm = (props) => {
         <table className="table table-sm table-bordered text-center border-dark">
           <thead>
             <tr>
-              <th className="text-start py-2">Name</th>
+              <th className="text-start py-2">Item</th>
+              <th className="text-end py-2">Price</th>
               <th className="text-end py-2">Unit</th>
-              <th className="text-end py-2">Cost</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +56,7 @@ const TableForm = (props) => {
                 <tr key={input}>
                   <td className="">
                     <input
-                      name={`name-${input}`}
+                      name={`item-${input}`}
                       id={`${input}`}
                       onChange={addInputHandler}
                       className={`form-control ${classes["table-input"]}`}
@@ -58,15 +65,16 @@ const TableForm = (props) => {
                   </td>
                   <td>
                     <input
-                      name={`unit-${input}`}
+                      name={`price-${input}`}
                       multiple
                       className={`form-control ${classes["table-input"]} text-end`}
                       type="number"
+                      step="1" min="0"
                     />
                   </td>
                   <td>
                     <input
-                      name={`cost-${input}`}
+                      name={`unit-${input}`}
                       multiple
                       className={`form-control ${classes["table-input"]} text-end`}
                       type="number"

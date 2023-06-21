@@ -1,0 +1,71 @@
+.print-container {
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    color: #33333384;
+}
+
+.date {
+    text-align: end;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.data-item-header {
+    border-bottom: 1px dotted #333;
+    padding: 10px 6px;
+    margin: 0;
+}
+.data-item-header .name, .data-item-header .unit, .data-item-header .cost, .data-item-header .amount {
+    display: inline-block;
+    width: 25%;
+    font-weight: bold;
+}
+.data-item-header .cost {
+    text-align: center;
+}
+.data-item-header .unit, .data-item-header .amount {
+    text-align: end;
+}
+
+.data-item {
+    padding: 6px;
+    margin: 0;
+}
+.data-item:hover {
+    background-color: #DAD5E3;
+}
+.data-item .name, .data-item .unit, .data-item .cost, .data-item .amount {
+    display: inline-block;
+    width: 25%;
+}
+.data-item .cost {
+    text-align: center;
+}
+.data-item .unit, .data-item .amount {
+    text-align: end;
+}
+
+.data-item-footer {
+    border-top: 1px dotted #333;
+    padding: 8px 6px;
+}
+.data-item-footer .total-cost, .data-item-footer .cost {
+    display: inline-block;
+    width: 50%;
+    font-weight: bold;
+}
+.data-item-footer .cost {
+    text-align: end;
+}
+
+.example {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 14px;
+    color: white;
+    background-color: #37323E;
+    padding: 2px 4px;
+}

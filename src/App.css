@@ -1,8 +1,17 @@
 body{
-    background-color: #DAD5E3;
+    background-color: #DEB841;
     font-family: 'Courier New', Courier, monospace;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+.form-control:focus {
+    border-color: #37323E !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

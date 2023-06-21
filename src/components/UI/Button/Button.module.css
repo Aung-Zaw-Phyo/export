@@ -1,13 +1,5 @@
-.overview {
-    background-color: white;
-}
-
-.action {
-    padding: 20px 30px;
-}
-
 .button {
-    width: 48%;
+    width: 100%;
     outline: none;
     border: none;
     box-shadow: none;
