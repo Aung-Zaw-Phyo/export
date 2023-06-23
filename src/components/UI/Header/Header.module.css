@@ -15,7 +15,6 @@
     font-size: 18px;
     color: #DEB841;
     transition: 300ms ease;
-    border-radius: 6px;
 }
 .go--back:hover {
     background-color: #19263940;

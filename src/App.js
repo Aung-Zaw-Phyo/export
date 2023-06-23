@@ -13,6 +13,7 @@ class App extends Component {
           <Route path='/' element={<Home/>}/>
           <Route path='/personal' element={<Personal/>}/>
           <Route path='/bussiness' element={<Bussiness/>} />
+          <Route path='/*' element={<p className='text-center mt-5 text-light'>Page Not Found</p>} />
         </Routes>
       </BrowserRouter>      
     );
