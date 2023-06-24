@@ -1,7 +1,7 @@
 .print-container {
     position: relative;
     background-color: white;
-    padding: 30px;
+    padding: 50px;
 }
 
 .date {
@@ -22,7 +22,7 @@
     font-weight: bold;
 }
 .data-item-header .cost {
-    text-align: center;
+    text-align: end;
 }
 .data-item-header .unit, .data-item-header .amount {
     text-align: end;
@@ -40,7 +40,7 @@
     width: 25%;
 }
 .data-item .cost {
-    text-align: center;
+    text-align: end;
 }
 .data-item .unit, .data-item .amount {
     text-align: end;
