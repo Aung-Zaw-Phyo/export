@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: "row",
-    borderTop: "1px solid #333",
     padding: "14px 6px",
+    fontWeight: 'bold'
   },
   footer_left: {
     width: "50%",
